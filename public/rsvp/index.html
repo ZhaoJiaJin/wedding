@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6ecda">
+  <title>RSVP · Wedding Invitation</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="card reply">
+    <a class="back" href="/">Back to invitation</a>
+    <h1>RSVP</h1>
+    <form name="wedding-rsvp" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="wedding-rsvp">
+      <p hidden><label>Leave this blank <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <label for="guest-name">Your full name</label>
+      <input id="guest-name" name="guest-name" autocomplete="name" required maxlength="150">
+      <fieldset>
+        <legend>Will you be attending?</legend>
+        <label class="choice"><input type="radio" name="attendance" value="accept" required> Joyfully accepts</label>
+        <label class="choice"><input type="radio" name="attendance" value="decline" required> Regretfully declines</label>
+      </fieldset>
+      <button class="button" type="submit">Send RSVP</button>
+    </form>
+  </main>
+</body>
+</html>
