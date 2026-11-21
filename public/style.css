@@ -111,7 +111,7 @@ dd { margin: 0; }
 .reply h1 { margin: .65em 0; }
 form { max-width: 23rem; margin: auto; text-align: left; }
 
-input:not([type="radio"]) {
+input:not([type="radio"]), textarea {
   width: 100%;
   min-height: 44px;
   margin-top: .35rem;
@@ -122,6 +122,11 @@ input:not([type="radio"]) {
   color: inherit;
   font: inherit;
 }
+
+textarea { display: block; resize: vertical; }
+.form-field { margin-top: 1rem; }
+.form-comments { margin-bottom: 1rem; }
+.form-field small { display: block; margin-top: .25rem; }
 
 fieldset { border: 0; padding: 0; margin: 1rem 0; }
 legend { padding: 0; }

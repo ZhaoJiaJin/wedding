@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#f6ecda">
   <title>RSVP · Wedding Invitation</title>
   <link rel="stylesheet" href="/style.css">
+  <script src="/rsvp/form.js" defer></script>
 </head>
 <body>
   <main class="card reply">
@@ -16,11 +17,45 @@
       <p hidden><label>Leave this blank <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <label for="guest-name">Your full name</label>
       <input id="guest-name" name="guest-name" autocomplete="name" required maxlength="150">
+      <div class="form-field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" autocomplete="email" required maxlength="254">
+      </div>
+      <div class="form-field">
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" required maxlength="40">
+      </div>
       <fieldset>
         <legend>Will you be attending?</legend>
         <label class="choice"><input type="radio" name="attendance" value="accept" required> Joyfully accepts</label>
         <label class="choice"><input type="radio" name="attendance" value="decline" required> Regretfully declines</label>
       </fieldset>
+      <fieldset id="attending-details">
+        <legend>If you’re attending</legend>
+        <div class="form-field">
+          <label for="guest-count">How many guests will attend, including you?</label>
+          <input type="number" id="guest-count" name="guest-count" min="1" step="1" aria-describedby="guest-count-note">
+          <small id="guest-count-note">Please count only guests listed on your invitation.</small>
+        </div>
+        <div class="form-field">
+          <label for="dietary">Food allergies or dietary requirements (optional)</label>
+          <textarea id="dietary" name="dietary" rows="3" maxlength="1500" aria-describedby="dietary-note"></textarea>
+          <small id="dietary-note">Please include the name of each guest with a requirement.</small>
+        </div>
+        <div class="form-field">
+          <label for="room-count">How many rooms would you like to request at Killeen Castle?</label>
+          <input type="number" id="room-count" name="room-count" min="0" max="26" step="1" aria-describedby="room-note">
+          <div id="room-note">
+            <small>Enter 0 if you don’t need a room. There are 26 rooms, each with one double bed and one single bed.</small>
+            <small>The special bed-and-breakfast rate is €177. If you request a room, we’ll contact you with booking details. If all rooms at Killeen Castle are taken, we’ll try to find accommodation nearby.</small>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-field form-comments">
+        <label for="comments">Any other comments?</label>
+        <textarea id="comments" name="comments" rows="3" maxlength="1500" aria-describedby="comments-note"></textarea>
+        <small id="comments-note">If you’re bringing an invited plus-one or additional guests, please enter their full names here.</small>
+      </div>
       <button class="button" type="submit">Send RSVP</button>
     </form>
   </main>
